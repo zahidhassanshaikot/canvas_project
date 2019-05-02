@@ -7,10 +7,11 @@
 		    <h2>Login Here</h2>
 
 		    <!-- Login Form -->
-		    <form>
-		      <input type="text" id="login" class="fadeIn second" name="login" placeholder="email">
-		      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-		      <input type="submit" class="fadeIn fourth" value="Log In">
+		    <form action="{{ route('customer-login') }}" method="POST">
+					{{ csrf_field() }}
+		      <input type="text" id="login" class="fadeIn second" name="email" placeholder="email">
+		      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+		      <input type="submit" class="fadeIn fourth" name="btn" value="Log In">
 		    </form>
 
 		    <!-- Remind Passowrd -->

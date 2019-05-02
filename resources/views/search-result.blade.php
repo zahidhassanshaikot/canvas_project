@@ -26,10 +26,10 @@
 			<div class="row">
 				<div class="col-md-12 col-sm-12">
 					<div class="main-title">
-						<h3>Demos</h3>
+						<h3>Search Reqsult</h3>
 					</div>
 				</div>
-				@foreach($demos as $demo)
+				@foreach($queryDemo as $demo)
 				<div class="col-md-4 col-sm-12">
 					<div class="product">
 						<div class="product-image">
@@ -44,7 +44,7 @@
 				@endforeach
 
 			</div>
-		
+		{!! $queryDemo->render() !!}
 		</div>
 	</section>
 	@endsection

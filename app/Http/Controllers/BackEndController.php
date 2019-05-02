@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Demo;
+use App\Comment;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -63,5 +64,15 @@ class BackEndController extends Controller
    
         return redirect()->back();
         ;
+    }
+    public function commentList(){
+        $commentList=Comment::all();
+        // return $commentList;
+        return view('Admin.comment-list',['commentList'=>$commentList]);
+    }
+    public function deleteComment($id){
+        Comment::find($id)->delete();
+        // return $commentList;
+        return redirect()->back()->with('message','comment deleted');
     }
 }

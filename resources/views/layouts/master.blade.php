@@ -33,34 +33,7 @@
 
 </head>
 <body id="softeum">
-	<header>
-		<div class="container">
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			    <div class="navbar-brand">
-			    	<a class="logo js-scroll-trigger" href="{{ route('/') }}">Canvas</a>
-			    </div>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			  	<span class="navbar-toggler-icon"></span>
-			  	</button>
-				<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				    <ul class="navbar-nav ml-auto">
-				      	<li>
-				      		<input type="text" class="search" placeholder="Search">
-				      	</li>
-				      	<li class="nav-item">
-				        	<a class="nav-link js-scroll-trigger" href="login.php">Login</a>
-				      	</li>
-				    	<li class="nav-item">
-				        	<a class="nav-link" href="register.php">Register</a>
-				    	</li>
-				    	<li class="nav-item">
-				        	<a class="nav-link" href="order.html">My Order</a>
-				    	</li>
-				    </ul>
-				</div>
-			</nav>
-		</div>
-	</header>
+
     @include('layouts.header')
 	@yield('content')
 	@include('layouts.footer')

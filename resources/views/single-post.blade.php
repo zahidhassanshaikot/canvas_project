@@ -28,6 +28,12 @@
 					<div class="single-post">
 						<div class="title">
 							<h4>Order Card</h4>
+			@if(Session::get('message'))
+			<br/>
+                <div class="alert alert-success" id="message">
+                    <h3 class=" text-center text-success"> {{ Session::get('message') }}</h3>
+                </div>
+            @endif
 						</div>
 						<div class="feature-image">
 							@if(!empty($demo->image))
@@ -38,16 +44,19 @@
 						</div>
 						<div class="post-details">
 							<ul>
-								<li>Available</li>
-								<li>Size: {{ $demo->availabe_size }}</li>
+								<li>Name:{{ $demo->demo_name }}</li>
+								
+								<li>Available Size: {{ $demo->availabe_size }}</li>
 								<li>Price: {{ $demo->price }}</li>
 							</ul>
 							<div class="order-btn">
-								<a href="#">Order Now</a>
+								<a href="{{ route('new-order',['id'=>$demo->id]) }}">Order Now</a>
 							</div>
 						</div>
 					</div>
+		
 					<div class="comments">
+	
 						<h3 class="comment-title">Comments</h3>
 @foreach($cmts as $cmt)
 						<div class="user">
@@ -79,7 +88,7 @@
 							<input type="email" placeholder="Email" name="email">
 						</div>
 						<div class="full-width">
-							<textarea name="comment" placeholder="Comment"></textarea>
+							<textarea class="form-control" name="comment" placeholder="Comment"></textarea>
 						</div>
 						<div class="submit"><input type="submit" value="Submit"></div>
 					</form>

@@ -8,7 +8,7 @@
           <div class="col-12">
             <div class="section-content">
               <div class="content-head">
-                <h4 class="content-title">Users Info List</h4><!-- /.content-title -->
+                <h4 class="content-title">Demo Info List</h4><!-- /.content-title -->
               </div><!-- /.content-head -->
 
               <div class="content-details show">

@@ -35,7 +35,7 @@
 			    <input type="submit" class="fadeIn fourth" value="Register">
 				  
 			  	<div class="container signin">
-			    	<p>Already have an account? <a href="login.html">Sign in</a>.</p>
+			    	<p>Already have an account? <a href="{{ route('login-page') }}">Sign in</a>.</p>
 			  	</div>
 			</form>
 
@@ -46,6 +46,7 @@
 		    </div>
 
 	  	</div>
+	</div>
 	</div>
 	
 @endsection

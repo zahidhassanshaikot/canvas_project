@@ -28,7 +28,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="add-post.php">
+              <a class="nav-link" href="{{ route('comment-list') }}">
                 <i class="fa fa-hashtag"></i> <span class="menu-title">Comment</span>
               </a>
             </li>
