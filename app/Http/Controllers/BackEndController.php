@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Demo;
 use App\Comment;
+use App\Customer;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -62,7 +63,7 @@ class BackEndController extends Controller
         $demo->save();
 
    
-        return redirect()->back();
+        return redirect()->back()->with('message','Successfully Saved');
         ;
     }
     public function commentList(){
@@ -74,5 +75,9 @@ class BackEndController extends Controller
         Comment::find($id)->delete();
         // return $commentList;
         return redirect()->back()->with('message','comment deleted');
+    }
+    public function customerList(){
+        $customerList=Customer::all();
+        return view('Admin.customer-list',['customerList'=>$customerList]);
     }
 }

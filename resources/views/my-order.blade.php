@@ -42,7 +42,7 @@
             </li>
 
             <li class="nav-item dropdown active">
-              <a class="nav-link" href="order-info.php">
+              <a class="nav-link" href="{{ route('my-order') }}">
                  <i class="fa fa-tachometer"></i><span class="menu-title">My Order</span>
               </a>
             </li>

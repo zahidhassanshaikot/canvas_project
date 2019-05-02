@@ -28,13 +28,19 @@
             </li>
 
             <li class="nav-item">
+              <a class="nav-link" href="{{ route('customer-list') }}">
+                <i class="fa fa-hashtag"></i> <span class="menu-title">Customer List</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
               <a class="nav-link" href="{{ route('comment-list') }}">
                 <i class="fa fa-hashtag"></i> <span class="menu-title">Comment</span>
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="add-post.php">
+              <a class="nav-link" href="#">
                 <i class="fa fa-hashtag"></i> <span class="menu-title">Message</span>
               </a>
             </li>

@@ -11,6 +11,7 @@ Route::get('/delete-demo/{id}', 'BackEndController@deleteDemo')->name('delete-de
 Route::get('/delete-comment/{id}', 'BackEndController@deleteComment')->name('delete-comment');
 
 Route::get('/comment-list', 'BackEndController@commentList')->name('comment-list');
+Route::get('/customer-list', 'BackEndController@customerList')->name('customer-list');
 
  });
 

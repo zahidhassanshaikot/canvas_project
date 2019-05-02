@@ -28,7 +28,7 @@
 				<div class="col-md-4 col-sm-12">
 					<div class="product">
 						<div class="title">
-							<h3>Demo Card</h3>
+							<h3>Card</h3>
 						</div>
 						<div class="product-image">
 							<a href="{{ route('demos',['id'=>'Card']) }}"><img src="{{ asset('assets') }}/img/1.jpg" alt=""></a>
@@ -41,7 +41,7 @@
 							<h3>Banner</h3>
 						</div>
 						<div class="product-image">
-							<a href="{{ route('demos',['id'=>'Banner']) }}"><img src="{{ asset('assets') }}/img/2.jpg" alt=""></a>
+							<a href="{{ route('demos',['id'=>'Banner']) }}"><img src="{{ asset('assets') }}/img/2x.jpg" alt=""></a>
 						</div>
 					</div>
 				</div>
