@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Demo;
 use App\Customer;
 use App\Comment;
+use App\Message;
 use App\OrderDemo;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -193,5 +194,63 @@ class applicationController extends Controller
             ->paginate(8);
 
         return view('search-result',['queryDemo'=>$queryDemo]);
+    }
+    public function userMessages(){
+        if(Session::get('customer_id')){
+            $customer_id= Session::get('customer_id');
+            $messages=Message::where('customer_id',$customer_id)->orderBy('id','DESC')->get();
+
+        return view('user-message',['messages'=>$messages]);
+        
+        }else {
+            return redirect()->back()->with('message','Login please');
+        }
+    }
+    public function sendUserMessages(Request $request){
+        $this->validate($request, [
+            'message' => 'required'
+        ]);
+        $message=new Message();
+
+        $message->customer_id=Session::get('customer_id');
+        $message->message=$request->message;
+        $message->status='Unseen';
+        $message->save();
+
+        return redirect()->back();
+    }
+    public function messagesList(){
+        $messageUser=Message::join('customer','customer.id','=','messages.customer_id')
+        ->select('customer.id','customer.fname','messages.status')->groupBy('customer.id','customer.fname','messages.status')->get();
+        // return $messageUser;
+        return view('Admin.user-message-list',['messageUser'=>$messageUser]);
+    }
+    public function admimMessage($id){
+        $messages=Message::where('customer_id',$id)->orderBy('id','DESC')->get();
+
+        foreach($messages as $message){
+           
+            $message->status='Seen';
+            $message->save();
+        }
+
+        return view('Admin.admin-message',[
+            'messages'=>$messages,
+            'customer_id'=>$id
+            ]);
+    }
+    public function sendAdminMessage(Request $request){
+         $this->validate($request, [
+            'message' => 'required'
+        ]);
+        $message=new Message();
+
+        $message->message=$request->message;
+        $message->customer_id=$request->customer_id;
+        $message->admin=1;
+        $message->status='Unseen';
+        $message->save();
+
+        return redirect()->back();
     }
 }

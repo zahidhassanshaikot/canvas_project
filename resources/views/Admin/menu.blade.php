@@ -40,7 +40,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{ route('messages-list') }}">
                 <i class="fa fa-hashtag"></i> <span class="menu-title">Message</span>
               </a>
             </li>

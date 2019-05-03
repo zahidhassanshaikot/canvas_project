@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="{{ asset('assets') }}/assets/css/style.css">
   <link rel="stylesheet" href="{{ asset('assets') }}/assets/css/responsive.css">
   <link rel="stylesheet" href="{{ asset('assets') }}/assets/css/index-01.css">
+  {{--  <link rel="stylesheet" href="{{ asset('assets') }}/.css">  --}}
 
     <div class="content-wrapper container-fluid">
       <aside class="left-panel">
@@ -41,11 +42,12 @@
               </a>
             </li>
 
-            <li class="nav-item dropdown active">
+            <li class="nav-item dropdown">
               <a class="nav-link" href="{{ route('my-order') }}">
                  <i class="fa fa-tachometer"></i><span class="menu-title">My Order</span>
               </a>
             </li>
+
             <li class="nav-item dropdown">
               <a class="nav-link" href="{{ route('user-messages') }}">
                  <i class="fa fa-envelope"></i><span class="menu-title">Message</span>
@@ -63,59 +65,45 @@
       </aside>
 
     <div class="dashboard-contents">
-      <div class="contents-inner">
-        <div class="row">
-          <div class="col-12">
-            <div class="section-content">
-              <div class="content-head">
-                <h4 class="content-title">My Order Products</h4><!-- /.content-title -->
-              </div><!-- /.content-head -->
+      	<div class="contents-inner">
+        	<div class="row">
+          		<div class="col-12">
+            		<div class="section-content">
+		              	<div class="content-head">
+		                	<h4 class="content-title">Conversation With Admin</h4>
+		              	</div>
+              			<div class="content-details show">
+                             	<div class="message-field">
+                                  
+	              				<form action="{{ route('send-user-message') }}" method="POST">
+                                      {{ csrf_field() }}
+                                      <input type="text" placeholder="Message Admin" name="message">
+                                      <input type="submit" name="btn" class="msg-btn" value="Send">
+	              					
+	              				</form>
+	              			</div>
+                			<div class="message-wrapper">
+                @foreach($messages as $message)
+                  @if(empty($message->admin))
+								<div class="user">
+									<h6 class="user-name"><a href="#">{{ Session::get('customer_fname') }}</a></h6>
+									<p class="user-message">{{ $message->message }}</p>
+                                </div>
+                                @else
+								<div class="admin">
+									<h6 class="admin-name"><a href="#">Admin</a></h6>
+									<p class="admin-message">{{ $message->message }}</p>
+                                </div>
+                                @endif
+							@endforeach
+							</div>
+	              		
+              			</div>
+            		</div>
+          		</div>
 
-              <div class="content-details show">
-                <table id="data-table" class="table data-table table-striped table-bordered">
-                  <thead>
-                    <tr>
-                      
-                      <th>Product Name</th>
-                      <th>Product Type</th>
-                      <th>Order Date</th>
-                      <th>Product Amount</th>
-                      <th>Status</th>
-                      
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                      @foreach($orders as $order)
-                    <tr>
-                      
-                      <td>
-                        <div class="name">
-                          <h6>{{ $order->demo_name }}</p>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="name">
-                          <h6>{{ $order->demo_type }}</p>
-                        </div>
-                      </td>
-                      <td>
-                          <div><h6>{{ $order->created_at }}</h6>
-                          </div>
-                      </td>
-                      <td>{{ $order->quentity }}</td>
-                      <td>{{ $order->status }}</td>
-                    
-                    </tr>
-                        @endforeach
-                  </tbody>
-                </table>
-              </div><!-- /.content-details -->
-            </div>
-          </div>
-
-        </div>
-      </div><!-- /.contents-inner -->
+        	</div>
+      	</div>
 
     <footer class="site-footer">
         <div class="copyright">
